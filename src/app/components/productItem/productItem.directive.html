@@ -1,0 +1,28 @@
+<div class="col-sm-3">
+    <div class="col-item">
+        <div class="photo">
+            <img ng-src="{{product.imageUrl}}" class="img-responsive" alt="a" />
+        </div>
+        <div class="info">
+            <div class="row">
+                <div class="price col-md-6">
+                    <h5>
+                        {{product.productName}}</h5>
+                    <h5 class="price-text-color">
+                        {{product.price | currency}}</h5>
+                </div>
+                <star-rating rating="product.starRating"></star-rating>
+            </div>
+            <div class="separator clear-left">
+                <p class="btn-add">
+                    <i class="fa fa-shopping-cart"></i>
+                    <a ng-click="addToCart(product.productId)" href="" class="hidden-sm">Add to cart</a></p>
+                <p class="btn-details">
+                    <i class="fa fa-list"></i>
+                    <a ng-href="/products/{{product.productId}}" class="hidden-sm">More details</a></p>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+</div>

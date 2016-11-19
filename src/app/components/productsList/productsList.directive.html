@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="row">
+        <div class="col-md-9">
+            <h3>{{title}}</h3>
+        </div>
+        <div class="col-md-3">
+            <!-- Controls -->
+            <div class="controls pull-right hidden-xs">
+                <a class="left fa fa-chevron-left btn btn-success" 
+                    href="#products-carousel" 
+                    data-slide="prev"></a>
+                <a class="right fa fa-chevron-right btn btn-success" 
+                    href="#products-carousel" 
+                    data-slide="next"></a>
+            </div>
+        </div>
+    </div>
+    <div id="products-carousel" class="carousel slide hidden-xs" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item" ng-class="{'active': $first}" 
+                ng-repeat="productContainer in vm.productsContainer">
+                <div class="row">
+                    <product-item ng-repeat="product in productContainer" product="product"></product-item>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-9">
+            <h3>{{title}}</h3>
+        </div>
+    </div>
+    <div uib-carousel active="active" interval="5000">
+        <div uib-slide class="item" ng-repeat="productContainer in vm.productsContainer" index="$index">
+            <div class="row">
+                <product-item ng-repeat="product in productContainer" product="product"></product-item>
+            </div>
+        </div>
+    </div>
+</div>
