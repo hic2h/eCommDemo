@@ -1,47 +1,45 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h1 class="page-header">Product management</h1>
+<h1 class="page-header">Product management</h1>
 
-  <h2 class="sub-header">Products</h2>
-  <!--button class="btn btn-xs btn-success" ng-click="addUser(newTask)">New User</button-->
-  <form ng-submit="applyFilter()">
-    <input type="text" name="search" ng-model="filter.text" placeholder="Product name, code..." />
-    <select name="category" ng-model="filter.category">
-      <option value="">- Category -</option>
-      <option ng-repeat="cat in allCategories" value="{{cat._id}}">{{cat.name}}</option>
-    </select>
-    <input type="button" class="btn btn-xs btn-success" value="Create new product" ng-click="newProduct()">
-  </form>
+<h2 class="sub-header">List of products</h2>
+<!--button class="btn btn-xs btn-success" ng-click="addUser(newTask)">New User</button-->
+<form ng-submit="applyFilter()">
+  <input type="text" name="search" ng-model="filter.text" placeholder="Product name, code..." />
+  <select name="category" ng-model="filter.category">
+    <option value="">- Category -</option>
+    <option ng-repeat="cat in allCategories" value="{{cat._id}}">{{cat.name}}</option>
+  </select>
+  <input type="button" class="btn btn-xs btn-success" value="Create new product" ng-click="newProduct()">
+</form>
 
-  <div class="table-responsive">
-    <table class="table table-striped" ng-show="products.length > 0">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <!--th>Description</th-->
-          <th>Price</th>
-          <th>Published</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="product in products | filter:filter.text | filter:filter.category">
-          <td>{{product._id}}</td>
-          <td>{{product.name}}</td>
-          <!--td>{{product.description}}</td-->
-          <td>{{product.price}}</td>
-          <td>
-            <input type="checkbox" ng-model="product.isPublished" checked="product.isPublished" disabled="true" />
-          </td>
-          <td>
-              <!--a ng-href="#!/products/{{product.id}}">View</a-->
-              <button class="btn btn-xs btn-success" ng-click="viewProduct(product._id)">View</button>
-              <button class="btn btn-xs btn-success" ng-click="editProduct(product._id)">Edit</button>
-              <button class="btn btn-xs btn-danger" ng-click="deleteProduct($index, product._id)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div ng-show="products.length > 0">{{products.length}} products.</div>
-  </div>
+<div class="table-responsive">
+  <table class="table table-striped" ng-show="products.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <!--th>Description</th-->
+        <th>Price</th>
+        <th>Published</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="product in products | filter:filter.text | filter:filter.category">
+        <td>{{product._id}}</td>
+        <td>{{product.name}}</td>
+        <!--td>{{product.description}}</td-->
+        <td style="text-align: right">{{product.price | currency}}</td>
+        <td style="text-align: center">
+          <input type="checkbox" ng-model="product.isPublished" checked="product.isPublished" disabled="true" />
+        </td>
+        <td>
+            <!--a ng-href="#!/products/{{product.id}}">View</a-->
+            <button class="btn btn-xs btn-success" ng-click="viewProduct(product._id)">View</button>
+            <button class="btn btn-xs btn-success" ng-click="editProduct(product._id)">Edit</button>
+            <button class="btn btn-xs btn-danger" ng-click="deleteProduct($index, product._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div ng-show="products.length > 0">{{products.length}} products.</div>
 </div>

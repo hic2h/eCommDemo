@@ -1,49 +1,46 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h1 class="page-header">Product : {{product.name}}</h1>
-  <!--h2 class="sub-header">{{product.name}}</h2-->
+<h1 class="page-header">Product : {{product.name}}</h1>
+<!--h2 class="sub-header">{{product.name}}</h2-->
 
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <tr>
-        <td colspan="2" style="text-align: center">
-          <img-slider imgs="product.images" width="250"></img-slider>
-        </td>
-      </tr>
-      <tr>
-        <td><label>Product name</label></td>
-        <td>{{product.name}}</td>
-      </tr>
-      <tr>
-        <td><label>Description</label></td>
-        <td>{{product.description}}</td>
-      </tr>
-      <tr>
-        <td><label>Price</label></td>
-        <td>{{product.price}}</td>
-      </tr>
-      <tr>
-        <td><label>Category</label></td>
-        <td>
-          <select id="category" ng-model="product.category" disabled="true">
-            <option value="">- Category -</option>
-            <option ng-repeat="cat in allCategories" value="{{cat._id}}">{{cat.name}}</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="published">Published</label></td>
-        <td><on-off id="published" value="product.isPublished"/></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="text-align: center">
-          <button class="btn btn-sm btn-success" ng-click="goBack()">Go back</button>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <!--img-slider imgs="product.images" width="250"></img-slider-->
-
-  <!--on-off value="product.isPublished"/-->
-
+<div class="table-responsive">
+  <table class="table table-striped">
+    <tr>
+      <td colspan="2" style="text-align: center">
+        <img-slider imgs="product.images" width="250"></img-slider>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Product name</label></td>
+      <td>{{product.name}}</td>
+    </tr>
+    <tr>
+      <td><label>Description</label></td>
+      <td>{{product.description}}</td>
+    </tr>
+    <tr>
+      <td><label>Price</label></td>
+      <td>{{product.price}}</td>
+    </tr>
+    <tr>
+      <td><label>Category</label></td>
+      <td>
+        <select id="category" ng-model="product.category" disabled="true">
+          <option value="">- Category -</option>
+          <option ng-repeat="cat in allCategories" value="{{cat._id}}">{{cat.name}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="published">Published</label></td>
+      <td><on-off id="published" value="product.isPublished"/></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center">
+        <button class="btn btn-sm btn-success" ng-click="goBack()">Go back</button>
+      </td>
+    </tr>
+  </table>
 </div>
+
+<!--img-slider imgs="product.images" width="250"></img-slider-->
+
+<!--on-off value="product.isPublished"/-->
