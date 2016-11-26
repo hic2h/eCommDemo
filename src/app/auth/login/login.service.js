@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('company').factory('LoginService', ['$cookies', 'AuthApi', function ($cookies, AuthApi) {
-  var auth = {};
 
   return {
     auth: function (login, pwd, cb) {
@@ -27,14 +26,6 @@ angular.module('company').factory('LoginService', ['$cookies', 'AuthApi', functi
 
         cb(access);
       });
-    },
-
-    hasToken : function() {
-      if ($cookies.get('token')) {
-        return true;
-      }else{
-        return false;
-      }
     }
   }
 }]);

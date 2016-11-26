@@ -11,6 +11,7 @@
         <li ui-sref-active="active" class="active"><a ui-sref="home">Home</a></li>
         <li ng-if="isAuthenticated() != true" ui-sref-active="active"><a ui-sref="login">Login</a></li>
         <li ng-if="isAuthenticated() != true" ui-sref-active="active"><a ui-sref="singUp">SingUp</a></li>
+        <li ng-if="isAuthenticated()" ui-sref-active="active"><a ui-sref="logout">LogOut</a></li>
       </ul>
       <h1>{{companyAccess.connected}}</h1>
       <h3 ng-if="companyAccess.connected">email here</h3>
