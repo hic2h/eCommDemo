@@ -10,9 +10,6 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
-      scope: {
-          creationDate: '='
-      },
       controller: NavbarController,
       controllerAs: 'vm',
       bindToController: true
@@ -21,11 +18,27 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
+    function NavbarController(LoginService, $cookies) {
       var vm = this;
 
-      // "vm.creationDate" is available by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
+      vm.companyAccess = {
+        connected : false
+      }
+
+      var getAccess = function() {
+        var accessToken = $cookies.get('token');
+        if (accessToken) {
+          LoginService.accessByToken(function (companyAccess) {
+            vm.companyAccess = companyAccess;
+            vm.companyAccess.connected = true;
+          }, accessToken);
+        }
+      };
+
+      if (LoginService.hasToken()) {
+          getAccess();
+      }
+
     }
   }
 
