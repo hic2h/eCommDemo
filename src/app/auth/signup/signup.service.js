@@ -1,17 +1,12 @@
 'use strict';
 
-angular.module('company').factory('SignupService', ['AuthApi', function(AuthApi){
+angular.module('company').factory('signupService', ['AuthApi','LoginService', function(AuthApi, LoginService){
     return {
-      signUp : function(cb, newcompany){
-        company = {
-          "username": newcompany.username,
-          "email": newcompany.email,
-          "password": newcompany.password,
-          "description": newcompany.description,
-          "logo": newcompany.logo
-        };
-        return AuthApi.signUp(company).success(function(response){
-
+      signup : function(company, cb){
+        return AuthApi.signup(company).success(function(response){
+          LoginService.authByToken(response.token, function(company){
+            cb(company);
+          });
         })
       }
     }

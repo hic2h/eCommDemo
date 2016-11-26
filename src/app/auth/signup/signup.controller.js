@@ -3,11 +3,13 @@
 
   angular.module('company').controller('SignupController', controller);
 
-  function controller() {
-      var vm = this;
-
-      vm.signup = function(company) {
-
+  function controller($state, $scope, signupService, SessionService) {
+    $scope.signup = function(company) {
+        signupService.signup(company, function(company){
+          console.log('company: ', company);
+          SessionService.setCompany(company);
+          $state.go('home');
+        });
       }
   }
 

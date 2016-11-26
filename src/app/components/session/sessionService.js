@@ -2,7 +2,7 @@
 
 angular
   .module('company')
-  .factory('SessionService', ['$cookies', function ($cookies) {
+  .factory('SessionService', ['cookiesService', function (cookiesService) {
     var company = {};
     return {
       isAuthenticated : function () {
@@ -17,7 +17,7 @@ angular
       },
       logout: function () {
         company = {};
-        $cookies.remove('token');
+        cookiesService.remove('token');
       },
       setCompany: function (newComapny) {
         company = newComapny;
