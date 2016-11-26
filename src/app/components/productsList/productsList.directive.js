@@ -14,7 +14,7 @@
 	        products: '='
 	      },
 	      templateUrl: 'app/components/productsList/productsList.directive.html',
-	      link: linkFunc,
+	      link: linkFunc, //utilise javascipt 
 	      controller: productsListController,
 	      controllerAs: 'vm'
 	    };
@@ -31,10 +31,10 @@
 	    }
 
 	    function linkFunc(scope, el, attr) {
-	    	$("a.carousel-control").click(function(e){
+	    	/*$("a.carousel-control").click(function(e){
 			    e.preventDefault();
 			    $(this).parent().carousel($(this).data("slide"));
-			});
+			});*/
 	    }
 	}
 

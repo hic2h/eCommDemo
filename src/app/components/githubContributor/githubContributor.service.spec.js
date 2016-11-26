@@ -6,7 +6,7 @@
     var $httpBackend;
     var $log;
 
-    beforeEach(module('sliderDirective'));
+    beforeEach(module('eCommDemo'));
     beforeEach(inject(function(_githubContributor_, _$httpBackend_, _$log_) {
       githubContributor = _githubContributor_;
       $httpBackend = _$httpBackend_;

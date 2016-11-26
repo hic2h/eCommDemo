@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('sliderDirective')
+    .module('eCommDemo')
     .constant('malarkey', malarkey)
     .constant('moment', moment);
 

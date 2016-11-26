@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('sliderDirective')
+    .module('eCommDemo')
     .directive('acmeNavbar', acmeNavbar);
 
   /** @ngInject */

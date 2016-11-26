@@ -15,7 +15,8 @@
 	      templateUrl: 'app/components/starRating/starRating.directive.html',
 	      link: linkFunc,
 	      controller: function($scope){
-	      	$scope.getBlueStars = function(num) {
+	      	$scope.getBlueStars = function(num) {  
+	      		if(num === undefined) return[];
 	      		var value = parseInt(num);
 	      		if(value > 5) value = 5;
 	      		if(value < 0) value = 0;
@@ -23,6 +24,7 @@
 			};
 
 			$scope.getEmptyStars = function(num) {
+				if(num === undefined) return[];
 	      		var value = 5 - parseInt(num);
 	      		if(value > 5) value = 5;
 	      		if(value < 0) value = 0;

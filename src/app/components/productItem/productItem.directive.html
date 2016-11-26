@@ -10,8 +10,10 @@
                         {{product.productName}}</h5>
                     <h5 class="price-text-color">
                         {{product.price | currency}}</h5>
+                </div> 
+                <div class="rating hidden-sm col-md-6">
+                 <star-rating rating="product.starRating" cssclass="price-text-color"></star-rating>
                 </div>
-                <star-rating rating="product.starRating"></star-rating>
             </div>
             <div class="separator clear-left">
                 <p class="btn-add">
@@ -19,8 +21,10 @@
                     <a ng-click="addToCart(product.productId)" href="" class="hidden-sm">Add to cart</a></p>
                 <p class="btn-details">
                     <i class="fa fa-list"></i>
-                    <a ng-href="/products/{{product.productId}}" class="hidden-sm">More details</a></p>
-            </div>
+<!--                     <a ui-sref="productsDetail({id:product.productId})" class="hidden-sm">More details</a></p>
+ -->              <a ui-sref="productsDetail({id:'5831cb79e1146c0013518dd5'})" class="hidden-sm">More details</a></p>
+
+ </div>
             <div class="clearfix">
             </div>
         </div>
