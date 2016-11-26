@@ -35,6 +35,20 @@
       <td><on-off id="published" value="product.isPublished"/></td>
     </tr>
     <tr>
+      <td><label for="images">Images</label></td>
+      <td>
+        <input type="text" id="imgUrl" ng-model="imgUrl" placeholder="Image full URL" style="width: 600px"/>
+        <input type="button" class="btn btn-xs btn-success" ng-click="addImgUrl()" value="Add URL"/>
+        <!--textarea id="images" ng-model="product.images" placeholder="Images as JSON" rows="4" cols="90" /-->
+        <ul id="images">
+          <li ng-repeat="img in product.images track by $index">
+            <a href="{{img}}" target="_blank" title="View image">Image {{$index + 1 }}</a>
+            <input type="button" ng-click="delUrl($index)" class="btn btn-xs btn-link" value="[ X ]" title="delete"/>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td colspan="2" style="text-align: center">
         <input type="submit" class="btn btn-sm btn-success" value="Save">
         <input type="reset" class="btn btn-sm btn-warning" value="Reset">
