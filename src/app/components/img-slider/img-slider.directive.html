@@ -1,0 +1,54 @@
+<div class="container-fluid" style="width: {{width}}px">
+        <div class="row">
+        	<div class="col-md-12" style="padding:0">
+            <!--div ng-show="imgs.length = 0">No images found.</div-->
+<!-- Start cssSlider.com -->
+	<div class='csslider1 autoplay '>
+		<input ng-repeat="img in imgs track by $index" name="cs_anchor1" id='cs_slide1_{{$index}}' type="radio" class='cs_anchor slide' >
+		<!--input name="cs_anchor1" id='cs_slide1_1' type="radio" class='cs_anchor slide' >
+		<input name="cs_anchor1" id='cs_slide1_2' type="radio" class='cs_anchor slide' -->
+		<input name="cs_anchor1" id='cs_play1' type="radio" class='cs_anchor' checked>
+		<input name="cs_anchor1" id='cs_pause1' type="radio" class='cs_anchor' >
+		<ul>
+			<div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
+				<img src="assets/images/buns.jpg" style="width: 100%;">
+			</div>
+
+			<li ng-repeat="img in imgs track by $index" class='num{{$index}} img'>
+				 <img src='{{img}}' alt='' title='' />
+			</li>
+		</ul>
+		<!--div class='cs_description'>
+			<label class='num0'>
+				<span class="cs_title"><span class="cs_wrapper">chiken</span></span>
+			</label>
+			<label class='num1'>
+				<span class="cs_title"><span class="cs_wrapper">Motton</span></span>
+			</label>
+			<label class='num2'>
+				<span class="cs_title"><span class="cs_wrapper">Kabab</span></span>
+			</label>
+		</div-->
+
+		<div class='cs_arrowprev'>
+			<label ng-repeat="img in imgs track by $index" class='num{{$index}}' for='cs_slide1_{{$index}}'></label>
+			<!--label class='num1' for='cs_slide1_1'></label>
+			<label class='num2' for='cs_slide1_2'></label-->
+		</div>
+		<div class='cs_arrownext'>
+			<label ng-repeat="img in imgs track by $index" class='num{{$index}}' for='cs_slide1_{{$index}}'></label>
+			<!--label class='num1' for='cs_slide1_1'></label>
+			<label class='num2' for='cs_slide1_2'></label-->
+		</div>
+
+
+		</div>
+		<!-- End cssSlider.com -->
+
+
+
+
+
+            </div><!--md12-->
+        </div><!--row-->
+    </div><!--container-->
