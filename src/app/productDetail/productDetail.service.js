@@ -3,7 +3,7 @@
 'use strict';
 
 angular
-.module('eCommDemo')
+.module('sliderDirective')
 .factory('ProductDetailService',['ProductDetailApi',function(ProductDetailApi){
 
 return {

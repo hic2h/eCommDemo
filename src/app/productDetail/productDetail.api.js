@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-.module('eCommDemo')
+.module('sliderDirective')
 .factory('ProductDetailApi',['$http','baseUrl',productDetailApi]);
 
 function productDetailApi($http,baseUrl){
