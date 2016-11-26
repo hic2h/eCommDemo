@@ -1,30 +1,26 @@
 'use strict';
 
-angular.module('company').factory('LoginService', ['$cookies', 'AuthApi', function ($cookies, AuthApi) {
+angular.module('company').factory('LoginService', ['cookiesService', 'AuthApi', function (cookiesService, AuthApi) {
 
   return {
-    auth: function (login, pwd, cb) {
-
-      var cookieToken = $cookies.get('token');
-
-      if (cookieToken) {
-          return cb(cookieToken);
-      }else{
-        return AuthApi.authenticate(login, pwd).success(function (response) {
-          var token = response.token;
-
-          $cookies.put('token', token);
-
-          cb(token);
-        });
-      }
+    company: function (token, cb) {
+      AuthApi.me(token).success(function (company) {
+        cb(company);
+      });
     },
-
-    accessByToken : function(token, cb){
-      return AuthApi.access(token).success(function(response){
-        var access = response;
-
-        cb(access);
+    auth: function (login, pwd, cb) {
+      var $this = this;
+      AuthApi.auth(login, pwd).success(function (response) {
+        $this.company(response.token, function (company) {
+          cookiesService.set('token', response.token);
+          cb(company);
+        });
+      });
+    },
+    authByToken: function (token, cb) {
+      this.company(token, function (company) {
+        cookiesService.set('token', token);
+        cb(company);
       });
     }
   }
