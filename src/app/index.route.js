@@ -13,6 +13,18 @@
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'main'
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'app/auth/login/login.html',
+        controller: 'LoginController',
+        controllerAs: 'login'
+      })
+      .state('singUp', {
+        url: '/signUp',
+        templateUrl: 'app/auth/signUp/sing-up.html',
+        controller: 'SignUpController',
+        controllerAs: 'singUpCtr'
       });
 
     $urlRouterProvider.otherwise('/');
