@@ -18,7 +18,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(LoginService, SessionService,  $scope) {
+    function NavbarController(SessionService,  $scope) {
 
       $scope.isAuthenticated = SessionService.isAuthenticated;
 

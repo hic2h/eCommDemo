@@ -25,7 +25,13 @@
         templateUrl: 'app/auth/signUp/sing-up.html',
         controller: 'SignUpController',
         controllerAs: 'singUpCtr'
-      });
+      })
+      .state('logout',
+        {
+          url : '/logout',
+          controller : 'LogoutController',
+          controllerAs : 'logoutCtr'
+        });
 
     $urlRouterProvider.otherwise('/');
   }

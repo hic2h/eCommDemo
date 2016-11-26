@@ -12,6 +12,10 @@ angular
             return false;
           }
         },
+      logout : function () {
+        company = {};
+        $cookies.remove('token');
+      },
       setCompany : function (newComapny) {
         company = newComapny;
       },
