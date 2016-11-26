@@ -1,0 +1,48 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">Edit a product</h1>
+  <!--h2 class="sub-header">{{product.name}}</h2-->
+
+  <form ng-submit="saveProduct()">
+    <div class="table-responsive">
+    <table class="table table-striped">
+      <tr>
+        <td><label for="name">Product name</label></td>
+        <td><input id="name" type="text" ng-model="product.name" placeholder="Product" /></td>
+      </tr>
+      <tr>
+        <td><label for="description">Description</label></td>
+        <td><textarea id="description" ng-model="product.description" placeholder="Description" rows="4" cols="40" /></td>
+      </tr>
+      <tr>
+        <td><label for="price">Price</label></td>
+        <td><input id="price" type="text" ng-model="product.price" placeholder="Price" /></td>
+      </tr>
+      <tr>
+        <td><label for="category">Category</label></td>
+        <td>
+          <select id="category" ng-model="product.category">
+            <option value="">- Category -</option>
+            <option ng-repeat="cat in allCategories" value="{{cat._id}}">{{cat.name}}</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="published">Published</label></td>
+        <td><on-off id="published" value="product.isPublished"/></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center">
+          <input type="submit" class="btn btn-sm btn-success" value="Save">
+          <input type="reset" class="btn btn-sm btn-warning" value="Reset">
+          <button class="btn btn-sm btn-success" ng-click="goBack()">Go back</button>
+        </td>
+      </tr>
+    </table>
+    </div>
+  </form>
+
+  <img-slider imgs="product.images" width="250"></img-slider>
+
+
+
+</div>
