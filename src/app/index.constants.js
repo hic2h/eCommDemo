@@ -5,6 +5,9 @@
   angular
     .module('sliderDirective')
     .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    .constant('moment', moment)
+    .constant('URL_API','https://ecommdemo.herokuapp.com/api/')
+   ;
+
 
 })();

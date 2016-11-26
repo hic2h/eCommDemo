@@ -3,7 +3,7 @@
 
   angular
     .module('sliderDirective', [
-    	'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 
-    	'ui.bootstrap', 'toastr', 'ngAnimate', 'productsList']);
+    	'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router',
+    	'ui.bootstrap', 'toastr', 'ngAnimate', 'productsList','company']);
 
 })();

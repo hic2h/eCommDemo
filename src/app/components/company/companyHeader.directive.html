@@ -1,0 +1,28 @@
+ <div class="row">
+     <div class="col-lg-12 col-sm-12 col-md-8">
+
+       <div class="card hovercard">
+         <div class="cardheader">
+
+         </div>
+         <div class="avatar">
+           <img alt="" ng-src="{{cp.company.logo}}">
+         </div>
+         <div class="info">
+           <div class="title">
+             <a target="_blank" ng-sref="{{cp.company.logo}}"></a>
+           </div>
+           <div class="desc">{{cp.company.username}}</div>
+           <div class="desc">{{cp.company.email}}</div>
+           <div class="desc">{{cp.company.description}}</div>
+         </div>
+         <div class="bottom">
+             <button class="fa fa-envelope fa-3x" aria-hidden="true" ng-click="cp.showMessageModal()"></button>
+           <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>{{cp.company.likes}}
+         </div>
+       </div>
+
+     </div>
+
+   </div>
+ </div>
