@@ -12,15 +12,18 @@ angular
           return false;
         }
       },
+      hasToken : function () {
+        return cookiesService.token() ? true : false;
+      },
       isAnonymous : function() {
-        return !isAuthenticated();
+        return !this.isAuthenticated();
       },
       logout: function () {
         company = {};
         cookiesService.remove('token');
       },
-      setCompany: function (newComapny) {
-        company = newComapny;
+      setCompany: function (newCompany) {
+        company = newCompany;
       },
       getCompany: function () {
         return company;

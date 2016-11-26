@@ -22,6 +22,11 @@ angular.module('company').factory('LoginService', ['cookiesService', 'AuthApi', 
         cookiesService.set('token', token);
         cb(company);
       });
+    },
+    authByCookieToken : function (cb) {
+      this.company(cookiesService.get('token'), function (company) {
+        cb(company);
+      });
     }
   }
 }]);
