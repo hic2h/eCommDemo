@@ -46,6 +46,20 @@ angular.module('sliderDirective.admin.product').factory('ProductService', ['Prod
         });
     },
 
+    delete: function(productId, callBack){
+      ProductApi.deleteOne(productId).success(function(response){
+        var filteredResult = response && response != "" ? angular.fromJson(response) : null;
+        //console.log(filteredResult);
+
+        //Delayed precessing when http request is completed
+        callBack(filteredResult);
+      })
+
+        .error(function(response, status){
+          console.log('Error with response: ' + response + ', status :' + status);
+        });
+    },
+
     getAllCategories: function(callBack){
       //get users from http server with $http
       ProductApi.getAllCategories().success(function(response){

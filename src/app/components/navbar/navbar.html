@@ -12,7 +12,7 @@
         <li ng-if="isAuthenticated() != true" ui-sref-active="active"><a ui-sref="login">Login</a></li>
         <li ng-if="isAuthenticated() != true" ui-sref-active="active"><a ui-sref="signup">SignUp</a></li>
         <li ng-if="isAuthenticated()" ui-sref-active="active"><a ui-sref="logout">LogOut</a></li>
-        <li ng-if="isAuthenticated()" ui-sref-active="active"><a ui-sref="product-list">Admin</a></li>
+        <li ng-if="isAuthenticated()" ui-sref-active="active"><a ui-sref="admin.index">Admin</a></li>
       </ul>
       <h1>{{companyAccess.connected}}</h1>
       <h3 ng-if="companyAccess.connected">email here</h3>

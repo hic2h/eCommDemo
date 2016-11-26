@@ -28,9 +28,9 @@
     $scope.deleteProduct = function(index, productId){
       console.log("deleteProduct : " + productId);
       if(index >= 0){
-        usersService.deleteProduct(productId, function(users){
-          $scope.users.splice(index, 1);
-//				$scope.users = users;
+        productService.delete(productId, function(products){
+          //$scope.products.splice(index, 1);
+  				$scope.products = products;
         });
       }
     };

@@ -19,32 +19,37 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       url: '',
       controller: ['$state', function ($state) {
         $state.go('admin.product-list');
-      }]
+      }],
+      params:{authorization:true}
     })
 
 		.state('admin.product-list', {
 			url: '/products',
 			templateUrl: 'app/admin/products/product-list.html',
-			controller: 'ProductListCtrl'//,controllerAs: 'pListCtrl'
+			controller: 'ProductListCtrl',
+      params:{authorization:true}
 		})
 
     .state('admin.product-add', {
       url: '/products/add',
       templateUrl: 'app/admin/products/product-add.html',
-      controller: 'ProductAddCtrl'
+      controller: 'ProductAddCtrl',
+      params:{authorization:true}
     })
 
 		.state('admin.product-details', {
 			url: '/products/:productId',
 			templateUrl: 'app/admin/products/product-detail.html',
 			controller: 'ProductDetailCtrl',
-			controllerAs: 'pDetailsCtrl'
+			controllerAs: 'pDetailsCtrl',
+      params:{authorization:true}
 		})
 
     .state('admin.product-edit', {
       url: '/products/edit/:productId',
       templateUrl: 'app/admin/products/product-edit.html',
-      controller: 'ProductEditCtrl'
+      controller: 'ProductEditCtrl',
+      params:{authorization:true}
     });
 
     //$urlRouterProvider.otherwise('/');
