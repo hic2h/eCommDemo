@@ -21,7 +21,7 @@
     };
 
     $scope.newProduct = function(){
-      $state.go("product-add");
+      $state.go("admin.product-add");
       //$location.path("admin/products/add");
     };
 
