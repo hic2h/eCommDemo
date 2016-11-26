@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('company').factory('SignUpService', ['AuthApi', function(AuthApi){
+angular.module('company').factory('SignupService', ['AuthApi', function(AuthApi){
     return {
       signUp : function(cb, newcompany){
         company = {

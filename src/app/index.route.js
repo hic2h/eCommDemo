@@ -20,11 +20,11 @@
         controller: 'LoginController',
         controllerAs: 'login'
       })
-      .state('singUp', {
-        url: '/signUp',
-        templateUrl: 'app/auth/signUp/sing-up.html',
-        controller: 'SignUpController',
-        controllerAs: 'singUpCtr'
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'app/auth/signup/sign-up.html',
+        controller: 'SignupController',
+        controllerAs: 'signupCtr'
       })
       .state('logout',
         {

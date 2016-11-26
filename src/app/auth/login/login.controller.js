@@ -23,7 +23,6 @@
             vm.auth = auth;
 
             SessionService.setCompany(auth);
-            console.log(SessionService.getCompany());
 
             if (vm.auth) {
               $state.go('home');
@@ -31,8 +30,6 @@
               $state.go('login');
             }
           })
-
-
         } );
 
       }

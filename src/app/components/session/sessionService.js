@@ -5,23 +5,26 @@ angular
   .factory('SessionService', ['$cookies', function ($cookies) {
     var company = {};
     return {
-        isAuthenticated : function() {
-          if(company.hasOwnProperty('_id')){
-            return true;
-          }else{
-            return false;
-          }
-        },
-      logout : function () {
+      isAuthenticated : function () {
+        if (company.hasOwnProperty('_id')) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      isAnonymous : function() {
+        return !isAuthenticated();
+      },
+      logout: function () {
         company = {};
         $cookies.remove('token');
       },
-      setCompany : function (newComapny) {
+      setCompany: function (newComapny) {
         company = newComapny;
       },
-      getCompany : function () {
+      getCompany: function () {
         return company;
       }
     }
 
-}])
+  }])
