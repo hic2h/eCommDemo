@@ -8,27 +8,41 @@ angular
 /** @ngInject */
 function routerConfig($stateProvider, $urlRouterProvider) {
 	$stateProvider
-		.state('product-list', {
-			url: '/admin/products',
+
+    .state('admin', {
+      url: '/admin',
+      templateUrl: 'app/admin/index.admin.html',
+      abstract : true
+    })
+
+    .state('admin.index', {
+      url: '',
+      controller: ['$state', function ($state) {
+        $state.go('admin.product-list');
+      }]
+    })
+
+		.state('admin.product-list', {
+			url: '/products',
 			templateUrl: 'app/admin/products/product-list.html',
 			controller: 'ProductListCtrl'//,controllerAs: 'pListCtrl'
 		})
 
-    .state('product-add', {
-      url: '/admin/products/add',
+    .state('admin.product-add', {
+      url: '/products/add',
       templateUrl: 'app/admin/products/product-add.html',
       controller: 'ProductAddCtrl'
     })
 
-		.state('product-details', {
-			url: '/admin/products/:productId',
+		.state('admin.product-details', {
+			url: '/products/:productId',
 			templateUrl: 'app/admin/products/product-detail.html',
 			controller: 'ProductDetailCtrl',
 			controllerAs: 'pDetailsCtrl'
 		})
 
-    .state('product-edit', {
-      url: '/admin/products/edit/:productId',
+    .state('admin.product-edit', {
+      url: '/products/edit/:productId',
       templateUrl: 'app/admin/products/product-edit.html',
       controller: 'ProductEditCtrl'
     });
