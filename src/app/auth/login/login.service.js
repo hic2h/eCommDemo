@@ -4,7 +4,7 @@ angular.module('company').factory('LoginService', ['$cookies', 'AuthApi', functi
   var auth = {};
 
   return {
-    auth: function (cb, login, pwd) {
+    auth: function (login, pwd, cb) {
 
       var cookieToken = $cookies.get('token');
 
@@ -21,7 +21,7 @@ angular.module('company').factory('LoginService', ['$cookies', 'AuthApi', functi
       }
     },
 
-    accessByToken : function(cb, token){
+    accessByToken : function(token, cb){
       return AuthApi.access(token).success(function(response){
         var access = response;
 

@@ -15,7 +15,7 @@ angular.module('api').factory('AuthApi', function($http, BASE_URL) {
     access : function(token){
       return $http({
         method  : 'GET',
-        url     : BASE_URL + '/api/companies/?access_token=' + token,
+        url     : BASE_URL + '/api/companies/me?access_token=' + token,
         headers : {'Content-Type': 'application/json'}
       });
     },

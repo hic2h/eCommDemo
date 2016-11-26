@@ -18,26 +18,9 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(LoginService, $cookies) {
-      var vm = this;
+    function NavbarController(LoginService, SessionService,  $scope) {
 
-      vm.companyAccess = {
-        connected : false
-      }
-
-      var getAccess = function() {
-        var accessToken = $cookies.get('token');
-        if (accessToken) {
-          LoginService.accessByToken(function (companyAccess) {
-            vm.companyAccess = companyAccess;
-            vm.companyAccess.connected = true;
-          }, accessToken);
-        }
-      };
-
-      if (LoginService.hasToken()) {
-          getAccess();
-      }
+      $scope.isAuthenticated = SessionService.isAuthenticated;
 
     }
   }

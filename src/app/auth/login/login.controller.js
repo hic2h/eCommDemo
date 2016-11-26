@@ -6,26 +6,30 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController($scope, $state, $cookies, LoginService) {
+  function LoginController($scope, $state, $cookies, LoginService, SessionService) {
 
     var vm = this;
 
     $scope.login = function (company) {
 
 
-        LoginService.auth(function(authToken){
+        LoginService.auth(company.login, company.pwd, function(authToken){
 
-          LoginService.accessByToken(function(auth){
+          LoginService.accessByToken(authToken, function(auth){
             vm.auth = auth;
+
+            SessionService.setCompany(auth);
+            console.log(SessionService.getCompany());
+
             if (vm.auth) {
               $state.go('home');
             }else{
               $state.go('login');
             }
-          }, authToken)
+          })
 
 
-        }, company.login, company.pwd);
+        } );
 
       }
   }
