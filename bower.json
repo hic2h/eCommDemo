@@ -1,5 +1,5 @@
 {
-  "name": "eCommDemo",
+  "name": "sliderDirective",
   "version": "0.0.0",
   "dependencies": {
     "angular-cookies": "~1.5.3",

@@ -2,5 +2,5 @@
 
 angular
 
-.module('eCommDemo')
+.module('sliderDirective')
 .value('baseUrl', 'http://ecommdemo.herokuapp.com/api');

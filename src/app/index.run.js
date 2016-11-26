@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('eCommDemo')
+    .module('sliderDirective')
     .run(runBlock);
 
   /** @ngInject */
