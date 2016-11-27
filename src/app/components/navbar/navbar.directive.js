@@ -18,9 +18,22 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(SessionService,  $scope) {
+    function NavbarController(SessionService, LoginService, $scope) {
+
+      $scope.isLoaded = false;
+
+      if (!SessionService.isAuthenticated() && SessionService.hasToken()) {
+
+        LoginService.authByCookieToken(function (company) {
+          SessionService.setCompany(company);
+          $scope.isLoaded = true;
+        });
+      }else{
+        $scope.isLoaded = true;
+      }
 
       $scope.isAuthenticated = SessionService.isAuthenticated;
+      $scope.isAnonymous = SessionService.isAnonymous;
 
     }
   }

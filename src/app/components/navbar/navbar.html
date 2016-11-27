@@ -9,13 +9,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
         <li ui-sref-active="active" class="active"><a ui-sref="home">Home</a></li>
-        <li ng-if="isAuthenticated() != true" ui-sref-active="active"><a ui-sref="login">Login</a></li>
-        <li ng-if="isAuthenticated() != true" ui-sref-active="active"><a ui-sref="signup">SignUp</a></li>
-        <li ng-if="isAuthenticated()" ui-sref-active="active"><a ui-sref="logout">LogOut</a></li>
-        <li ng-if="isAuthenticated()" ui-sref-active="active"><a ui-sref="admin.index">Admin</a></li>
+        <li ng-show="isLoaded && isAnonymous()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+        <li ng-show="isLoaded && isAnonymous()" ui-sref-active="active"><a ui-sref="signup">SignUp</a></li>
+        <li ng-show="isLoaded && isAuthenticated()" ui-sref-active="active"><a ui-sref="logout">LogOut</a></li>
+        <li ng-show="isLoaded && isAuthenticated()" ui-sref-active="active"><a ui-sref="admin.index">Admin</a></li>
       </ul>
-      <h1>{{companyAccess.connected}}</h1>
-      <h3 ng-if="companyAccess.connected">email here</h3>
      <!-- <ul class="nav navbar-nav navbar-right acme-navbar-text">
         <li>Application was created {{ vm.relativeDate }}.</li>
       </ul>-->

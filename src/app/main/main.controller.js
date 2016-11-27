@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, $cookies, LoginService) {
+  function MainController($timeout,$scope, webDevTec, toastr, $cookies, LoginService) {
     var vm = this;
 
     vm.title = "Products category";
@@ -63,7 +63,7 @@
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
       }
     ];
-
+    
     vm.getProducts = function () {
       return vm.products;
     }

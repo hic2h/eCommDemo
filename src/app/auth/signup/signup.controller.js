@@ -5,6 +5,7 @@
 
   function controller($state, $scope, signupService, SessionService) {
     $scope.signup = function(company) {
+
         signupService.signup(company, function(company){
           console.log('company: ', company);
           SessionService.setCompany(company);
