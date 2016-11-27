@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function LoginController($scope, $state, LoginService, SessionService) {
-
+    var vm = this;
     if (SessionService.isAuthenticated()) {
       $state.go('home');
     }
