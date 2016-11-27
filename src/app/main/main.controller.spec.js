@@ -5,35 +5,41 @@
     var vm;
     var $timeout;
     var toastr;
+    var $scope;
+    var ProductsList;
+
+    var products = [
+        {
+            "productId": 1,
+            "productName": "Leaf Rake",
+            "productCode": "GDN-0011",
+            "releaseDate": "March 19, 2016",
+            "description": "Leaf rake with 48-inch wooden handle.",
+            "price": 19.95,
+            "starRating": 3.2,
+            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+        }
+    ];
 
     beforeEach(module('sliderDirective'));
-    beforeEach(inject(function(_$controller_, _$timeout_, _webDevTec_, _toastr_) {
-      spyOn(_webDevTec_, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
-      spyOn(_toastr_, 'info').and.callThrough();
+    beforeEach(inject(function(_$controller_, _$timeout_, _ProductsList_) {
+      //spyOn(_toastr_, 'info').and.callThrough();
 
-      vm = _$controller_('MainController');
-      $timeout = _$timeout_;
-      toastr = _toastr_;
+      spyOn(_ProductsList_, 'get').and.returnValue(products);
+      vm = _$controller_('MainController', {$scope: $scope});
+      ProductsList = _ProductsList_;
+
     }));
 
-    it('should have a timestamp creation date', function() {
-      expect(vm.creationDate).toEqual(jasmine.any(Number));
-    });
+    describe('getProducts()', function(){
+      
+        it('getProducts() should return products list', function() {
 
-    it('should define animate class after delaying timeout ', function() {
-      $timeout.flush();
-      expect(vm.classAnimation).toEqual('rubberBand');
-    });
+      var returnedProducts = vm.getProducts();
+      expect(returnedProducts).toEqual(products);
 
-    it('should show a Toastr info and stop animation when invoke showToastr()', function() {
-      vm.showToastr();
-      expect(toastr.info).toHaveBeenCalled();
-      expect(vm.classAnimation).toEqual('');
+      expect(ProductsList.get).toHaveBeenCalled();
     });
-
-    it('should define more than 5 awesome things', function() {
-      expect(angular.isArray(vm.awesomeThings)).toBeTruthy();
-      expect(vm.awesomeThings.length === 5).toBeTruthy();
-    });
+    })
   });
 })();

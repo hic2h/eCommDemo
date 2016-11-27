@@ -3,15 +3,26 @@
 
   angular
     .module('sliderDirective')
+    .factory('ProductsList', ProductsList)
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($scope, ProductsList) {
     var vm = this;
 
     vm.title = "Products category";
 
-    vm.products = [
+    vm.products = [];
+
+    vm.getProducts = function(){
+        return ProductsList.get();
+    }
+  }
+
+
+    /** @ngInject */
+  function ProductsList() {
+        var products = [
         {
             "productId": 1,
             "productName": "Leaf Rake",
@@ -62,6 +73,12 @@
             "starRating": 4.6,
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
         }
-    ]
+    ];
+
+    return {
+        get: function(){
+            return products;
+        }
+    }
   }
 })();
