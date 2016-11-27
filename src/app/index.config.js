@@ -3,7 +3,16 @@
 
   angular
     .module('sliderDirective')
-    .config(config);
+    .config(config)
+    .run(function ($rootScope, $state, SessionService) {
+      $rootScope.$on("$stateChangeStart", function(event, toState){
+        if (toState.params.authorization && SessionService.isAnonymous()){
+          // User isn’t authenticated
+          $state.go("login");
+          event.preventDefault();
+        }
+      });
+    });
 
   /** @ngInject */
   function config($logProvider, toastrConfig, $httpProvider) {
