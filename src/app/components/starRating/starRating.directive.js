@@ -7,6 +7,7 @@
 
     /** @ngInject */
   function starRating() {
+	  
 	    var directive = {
 	      restrict: 'E',
 	      scope: {
@@ -33,9 +34,9 @@
 	      }
 	    };
 
-	    return directive;
+		return directive;
 
-	    function linkFunc(scope, el, attr) {}
+		function linkFunc(scope, el, attr) {}
 	}
 
 })();

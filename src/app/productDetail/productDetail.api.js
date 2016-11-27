@@ -10,7 +10,7 @@ function productDetailApi($http,baseUrl){
 	return {
 
 		productById :function(id){
-			return $http.get(baseUrl+'/products/'+id);
+			return $http.get(baseUrl+'/api/products/'+id);
 		}
 
 

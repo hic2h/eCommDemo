@@ -1,6 +1,7 @@
 'use strict';
 
-angular
 
-.module('sliderDirective')
-.value('baseUrl', 'http://ecommdemo.herokuapp.com/api');
+angular.module('sliderDirective.api', [])
+
+.value('BASE_URL', 'http://ecommdemo.herokuapp.com');
+
