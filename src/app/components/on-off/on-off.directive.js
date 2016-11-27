@@ -17,7 +17,7 @@
       controller: function($scope){
 
         $scope.isChecked = function(val) {
-          console.log("isChecked : " + val);
+          //console.log("isChecked : " + val);
           if(val && val == true){
             return true;
           }

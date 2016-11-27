@@ -44,6 +44,21 @@
     $scope.goBack = function(){
       $location.path("admin/products");
     };
+
+    $scope.imgUrl = '';
+    $scope.addImgUrl = function () {
+      console.log($scope.imgUrl);
+      if($scope.imgUrl && $scope.imgUrl != ''){
+        $scope.product.images.push($scope.imgUrl);
+        $scope.imgUrl = '';
+      }
+    };
+
+    $scope.delUrl = function (index) {
+      //if(index && index >= 0){
+        $scope.product.images.splice(index, 1);
+      //}
+    };
 	}
 
 })();
