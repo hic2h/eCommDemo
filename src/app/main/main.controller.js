@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, $cookies, LoginService) {
+  function MainController($timeout,$scope, webDevTec, toastr, $cookies, LoginService) {
     var vm = this;
 
     vm.title = "Products category";
@@ -64,5 +64,8 @@
       }
     ];
 
+ vm.getProducts= function(){
+  return vm.products;
+ }
   }
 })();

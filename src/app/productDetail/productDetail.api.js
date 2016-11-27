@@ -3,7 +3,7 @@
 
 angular
 .module('sliderDirective')
-.factory('ProductDetailApi',['$http','baseUrl',productDetailApi]);
+.factory('ProductDetailApi',['$http','BASE_URL',productDetailApi]);
 
 function productDetailApi($http,baseUrl){
 
