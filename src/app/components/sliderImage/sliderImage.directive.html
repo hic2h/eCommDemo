@@ -1,0 +1,14 @@
+               
+
+	                    <div class="preview-pic tab-content">
+						  <div  class="tab-pane active" id="pic-5"><img ng-src="{{urlImg}}" /></div>
+						  
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs">
+   					         <li ng-repeat="i in images track by $index"> 
+						      <a data-target="#pic-2" data-toggle="tab"><img ng-src="{{i}}" ng-click="selectImage(i)" />
+						      </a>
+						  </li>
+				        </ul> 
+
+				         
