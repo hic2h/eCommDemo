@@ -31,7 +31,13 @@
           url : '/logout',
           controller : 'LogoutController',
           controllerAs : 'logoutCtr'
-        });
+        })
+      .state('productDetail', {
+        url: '/products/:id',
+        templateUrl: 'app/productDetail/productDetail.html',
+        controller: 'DetailProductController',
+        controllerAs: 'productDetailCtrl'
+      });
 
     $urlRouterProvider.otherwise('/');
   }
