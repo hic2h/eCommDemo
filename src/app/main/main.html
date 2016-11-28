@@ -1,9 +1,13 @@
-<div  class="container">
+<div  class="container" ng-controller="CompanyGridController as cpg">
 <div class="container-fluid">
-  <!--<products-list-->
-  <!--title="{{main.title}}"-->
-  <!--products="main.products"></products-list>-->
-  <company-header company="google"/>
+  <!--<company-header company="google"/>-->
+
+  <figure class="icons col-md-2" ng-repeat="company in cpg.listCompanies track by $index" >
+     <img ng-src="{{company.logo}}" alt="sample96" height="50%" width="50%" class="img-responsive" >
+
+    <a ui-sref="detailCompany({'companyName' : company.username})"> for more details </a>
+    </figcaption>
+  </figure>
 </div>
 </div>
 

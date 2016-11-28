@@ -31,7 +31,13 @@
           url : '/logout',
           controller : 'LogoutController',
           controllerAs : 'logoutCtr'
-        });
+        })
+      .state('detailCompany',{
+         url :'/companies/:companyName?',
+        templateUrl: 'app/components/company/companyDetail.html',
+        controller: 'CompanyController',
+        controllerAs: 'cp'
+      });
 
     $urlRouterProvider.otherwise('/');
   }
